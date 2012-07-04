@@ -23,7 +23,6 @@
 			menuChildrenSelector = '> li,> ul > li',
 			// Application Generic Variables 
 			$body = $(document.body),
-			rootUrl = History.getRootUrl(),
 			scrollOptions = {
 				duration: 800,
 				easing:'swing'
@@ -51,7 +50,7 @@
 		var documentHtml = function(html){
 			// Prepare
 			var result = String(html).replace(/<\!DOCTYPE[^>]*>/i, '')
-									 .replace(/<(html|head|body|title|meta|script)([\s\>])/gi,'<div class="document-$1"$2')
+									 .replace(/<(html|head|body|title|meta|script)([\s\>])/gi,'<div id="document-$1"$2')
 									 .replace(/<\/(html|head|body|title|meta|script)\>/gi,'</div>');
 			// Return
 			return result;
@@ -64,7 +63,7 @@
 
 			// Ajaxify
 			$this.find('a:internal:not(.no-ajaxy)').click(function(event){
-				$.scrollTo(0,0);
+				
 				// Prepare
 				var
 					$this	= $(this),
@@ -95,22 +94,6 @@
 			url			= State.url,
 			relativeUrl = url.replace(rootUrl,'');
 
-			var home_body_class = 'home blog';
-			var page_body_class = '';
-			if(jQuery('body').attr('class').indexOf('logged-in') != -1) {
-				 home_body_class += ' logged-in';
-				 page_body_class += ' logged-in';
-			}
-			//alert(rootUrl + url);
-			if(rootUrl == url) {
-				jQuery('body').attr('class', home_body_class);
-			} else if (url.indexOf('page') !=-1) {
-				home_body_class += ' paged paged-' + url.split('/')[4];
-				jQuery('body').attr('class', home_body_class);
-			} else {
-				jQuery('body').attr('class', 'single single-post single-format-standard singular' + page_body_class);
-			}
-
 			// Set Loading
 			$body.addClass('loading');
 
@@ -123,15 +106,20 @@
 			$.ajax({
 				url: url,
 				success: function(data, textStatus, jqXHR){
+					
 					// Prepare
 					var
-					$data = $(documentHtml(data)),
-					$dataBody = $data.find('.document-body:first'),
-					$dataContent = $dataBody.find(contentSelector).filter(':first'),
-					$menuChildren, contentHtml, $scripts;
-
+						$data 			= $(documentHtml(data)),
+						$dataBody 		= $data.find('#document-body:first'),
+						bodyClasses 	= $dataBody.attr('class'),
+						$dataContent 	= $dataBody.find(contentSelector).filter(':first'),
+						$menuChildren, contentHtml, $scripts;
+					
+					//Add classes to body
+					jQuery('body').attr('class', bodyClasses);
+					
 					// Fetch the scripts
-					$scripts = $dataContent.find('.document-script');
+					$scripts = $dataContent.find('#document-script');
 					if ( $scripts.length ) $scripts.detach();
 
 					// Fetch the content
@@ -152,7 +140,7 @@
 					$content.html(contentHtml).ajaxify().css('opacity',100).show(); // you could fade in here if you'd like 
 
 					// Update the title
-					document.title = $data.find('.document-title:first').text();
+					document.title = $data.find('#document-title:first').text();
 					try {
 						document.getElementsByTagName('title')[0].innerHTML = document.title.replace('<','&lt;').replace('>','&gt;').replace(' & ',' &amp; ');
 					}
@@ -166,7 +154,7 @@
 					});
 
 					// Complete the change
-					if ( $body.ScrollTo||false ) $body.ScrollTo(scrollOptions); // http://balupton.com/projects/jquery-scrollto
+					if ( $body.ScrollTo||false ) $body.ScrollTo(scrollOptions);
 					
 					$body.removeClass('loading');
 

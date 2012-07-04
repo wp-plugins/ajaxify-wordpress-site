@@ -1,6 +1,6 @@
 === Ajaxify Wordpress Site ===
 Contributors: manishkrag
-Version 1.0.0
+Version 1.1
 Tags: ajax, posts, pages, page, post, ajax search, ajaxify
 Tested up to: 3.4
 
@@ -20,3 +20,10 @@ Q: Search is not working as ajaxify?
 A: Please make sure that your search form submit input tag id should be 'search-submit' and input box id should be 'search-terms'.
 Q: I don't want to make a link ajaxify, what to do?
 A: Add 'no-ajaxify' class to the 'a' tag which you dont want to make ajaxify.
+
+= 1.1 =
+* Updated plug-in to update the body tag classes as it should be if your site not in ajaxify mode.
+* Removed the scrollToTop functionality at the time of ajaxing to solve the issue coming at the time of jQuery tab.
+
+= 1.0 =
+* This is the first version

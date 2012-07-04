@@ -6,7 +6,7 @@
  *			   This was my first plugin and is still a little quirky.
  *Author: Manish Kumar Agarwal
  *EmailId: manishkrag@yahoo.co.in/manisha@mindfiresolutions.com
- *Version: 1.0
+ *Version: 1.1
  */
  
 /*
@@ -34,9 +34,14 @@ function load_scripts() {
 		wp_enqueue_script('jquery');
 	}
 	$plugin_dir_path = plugin_dir_url(__FILE__);
+	
 	wp_enqueue_script('history-js', $plugin_dir_path . 'js/history.js', array('jquery'));
 	wp_enqueue_script('jquery-scrollTo-js', $plugin_dir_path . 'js/jquery.scrollTo-min.js', array('jquery'));
 	wp_enqueue_script('ajaxify-js',  $plugin_dir_path . 'js/ajaxify.js', array('jquery'));
+	
+	$root_url = site_url() . '/';
+	wp_localize_script('ajaxify-js', 'rootUrl', $root_url);
 }
+
 //calling load_scripts function to load js files
 add_action('wp_enqueue_scripts', 'load_scripts');
