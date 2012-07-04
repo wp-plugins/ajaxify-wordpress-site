@@ -8,10 +8,18 @@ Tested up to: 3.4
 
 Ajaxify Wordpress Site will load posts, pages, search etc. without reloading entire page. This was my first plugin and is still a little quirky.
 
+Features:
+1. Post will load without browser refresh.
+2. Page will load without browser refresh.
+3. Make wordpress search to ajaxify search.
+4. Your custom theme design will not break.
+
 == Installation ==
 
 1. Upload `ajaxify-wordpress-site` folder to the `/wp-content/plugins/` directory
-2. Activate the plugin through the 'Plugins' menu in WordPress. 
+2. Activate the plugin through the 'Plugins' menu in WordPress.
+3. Change the ID of the wordpress search form submit button to "ajax-search".
+4. Provide "no-ajaxy" class to "a" tag if you dont want to make this "a" tag to be ajaxify.
 
 == Frequently Asked Questions ==
 Q: My site not ajaxify even after activating this plugin?
