@@ -18,7 +18,7 @@ Features:
 
 * Upload `ajaxify-wordpress-site` folder to the `/wp-content/plugins/` directory
 * Activate the plugin through the 'Plugins' menu in WordPress.
-* Change the ID of the wordpress search form submit button to "ajax-search".
+* Change the ID of the wordpress search form submit button to "search-submit".
 * Provide "no-ajaxy" class to "a" tag if you dont want to make this "a" tag to be ajaxify.
 
 == Frequently Asked Questions ==
