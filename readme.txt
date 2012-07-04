@@ -29,6 +29,7 @@ Features:
 * Q: I don't want to make a link ajaxify, what to do?
 * A: Add 'no-ajaxify' class to the 'a' tag which you dont want to make ajaxify.
 
+== Changelog ==
 = 1.1 =
 * Updated plug-in to update the body tag classes as it should be if your site not in ajaxify mode.
 * Removed the scrollToTop functionality at the time of ajaxing to solve the issue coming at the time of jQuery tab.
