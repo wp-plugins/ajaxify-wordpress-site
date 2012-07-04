@@ -22,14 +22,16 @@ Features:
 * Provide "no-ajaxy" class to "a" tag if you dont want to make this "a" tag to be ajaxify.
 
 == Frequently Asked Questions ==
-* Q: My site not ajaxify even after activating this plugin?
-* A: Please check you core jQuery library, please use 1.7 version.
-* Q: Search is not working as ajaxify?
-* A: Please make sure that your search form submit input tag id should be 'search-submit' and input box id should be 'search-terms'.
-* Q: I don't want to make a link ajaxify, what to do?
-* A: Add 'no-ajaxify' class to the 'a' tag which you dont want to make ajaxify.
+
+<br />Q: My site not ajaxify even after activating this plugin?
+<br />A: Please check you core jQuery library, please use 1.7 version.
+<br />Q: Search is not working as ajaxify?
+<br />A: Please make sure that your search form submit input tag id should be 'search-submit' and input box id should be 'search-terms'.
+<br />Q: I don't want to make a link ajaxify, what to do?
+<br />A: Add 'no-ajaxify' class to the 'a' tag which you dont want to make ajaxify.
 
 == Changelog ==
+
 = 1.1 =
 * Updated plug-in to update the body tag classes as it should be if your site not in ajaxify mode.
 * Removed the scrollToTop functionality at the time of ajaxing to solve the issue coming at the time of jQuery tab.
