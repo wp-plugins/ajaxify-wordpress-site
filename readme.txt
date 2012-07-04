@@ -9,10 +9,10 @@ Tested up to: 3.4
 Ajaxify Wordpress Site will load posts, pages, search etc. without reloading entire page. This was my first plugin and is still a little quirky.
 
 Features:
-* Post will load without browser refresh.
-* Page will load without browser refresh.
-* Make wordpress search to ajaxify search.
-* Your custom theme design will not break.
+<br /> Post will load without browser refresh.
+<br /> Page will load without browser refresh.
+<br /> Make wordpress search to ajaxify search.
+<br /> Your custom theme design will not break.
 
 == Installation ==
 
