@@ -32,6 +32,9 @@ Features:
 
 == Changelog ==
 
+= 1.2 =
+* Solve the issue if no-ajaxify class dynamically adding to anchor tags.
+
 = 1.1 =
 * Updated plug-in to update the body tag classes as it should be if your site not in ajaxify mode.
 * Removed the scrollToTop functionality at the time of ajaxing to solve the issue coming at the time of jQuery tab.

@@ -6,7 +6,7 @@
  *			   This was my first plugin and is still a little quirky.
  *Author: Manish Kumar Agarwal
  *EmailId: manishkrag@yahoo.co.in/manisha@mindfiresolutions.com
- *Version: 1.1
+ *Version: 1.2
  */
  
 /*
