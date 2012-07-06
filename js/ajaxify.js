@@ -62,8 +62,7 @@
 			var $this = $(this);
 
 			// Ajaxify
-			$this.find('a:internal:not(.no-ajaxy)').live('clcik', function(event){
-				
+			$this.find('a:internal:not(.no-ajaxy)').live('click', function(event){
 				// Prepare
 				var
 					$this	= $(this),
@@ -110,11 +109,11 @@
 					// Prepare
 					var
 						$data 			= $(documentHtml(data)),
-						$dataBody 		= $data.find('#document-body:first'),
+						$dataBody		= $data.find('#document-body:first'),
 						bodyClasses 	= $dataBody.attr('class'),
 						$dataContent 	= $dataBody.find(contentSelector).filter(':first'),
 						$menuChildren, contentHtml, $scripts;
-					
+
 					//Add classes to body
 					jQuery('body').attr('class', bodyClasses);
 					
@@ -138,7 +137,7 @@
 					// Update the content
 					$content.stop(true,true);
 					$content.html(contentHtml).ajaxify().css('opacity',100).show(); // you could fade in here if you'd like 
-
+					
 					// Update the title
 					document.title = $data.find('#document-title:first').text();
 					try {
@@ -179,7 +178,7 @@
 })(window); // end closure
 
 jQuery(document).ready(function(){
-	
+
 	//append anchor tag to DOM to make the search in site ajaxify.
 	var searchButtonHtml = '<span id="ajax-search" style="display:none;"><a href=""></a></span>'
 	jQuery("body").prepend(searchButtonHtml);
