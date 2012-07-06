@@ -191,7 +191,7 @@ jQuery(document).ready(function(){
 	jQuery("#search-submit").click(
 		function(d){
 			d.preventDefault();
-			var host = 'http://' + document.location.hostname + "?s=";
+			var host = rootUrl + "?s=";
 			jQuery("#ajax-search a").attr("href", host + jQuery(this).siblings("#search-terms").val());
 			jQuery("#ajax-search a").trigger("click");
 		}
