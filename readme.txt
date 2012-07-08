@@ -8,7 +8,7 @@ Tested up to: 3.4
 
 Ajaxify Wordpress Site will load posts, pages, search, header, sidebar, footer sections etc. without reloading entire page. This was my first plugin and is still a little quirky.
 
-By providing the id of the container whose data needs to update admin can select which portion s/he want to ajaxify. Like if your site has static header, sidebar and footer section then you can provide the middile content area container id, again if your site contain all dynamic data then you have to provide the id of the div in which your sites all content present.
+By providing the id of the container, in aws options form, whose data needs to update admin can select which portion s/he want to ajaxify. Like if your site has static header, sidebar and footer section then you can provide the middile content area container id, again if your site contain all dynamic data then you have to provide the id of the div in which your sites all content present.
 
 Features:
 <br /> Post will load without browser refresh.
