@@ -24,7 +24,6 @@ Features:
 * Activate the plugin through the 'Plugins' menu in WordPress.
 * Go to Settings tab there a `AWS Options Page` link will be present click on it and provide the datails.
 * Change the ID of the wordpress search form submit button to "search-submit".
-* Provide "no-ajaxy" class to "a" tag if you dont want to make this "a" tag to be ajaxify.
 
 == Frequently Asked Questions ==
 
