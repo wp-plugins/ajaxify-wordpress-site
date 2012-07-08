@@ -14,12 +14,12 @@
 		// Prepare Variables
 		var
 			// Application Specific Variables 
-			contentSelector = '#content,article,.article,.post',
+			contentSelector = '#' + container_id,
 			$content = $(contentSelector),
 			contentNode = $content.get(0),
-			$menu = $('#menu,#nav,nav,.nav'),
-			activeClass = 'active selected current youarehere',
-			activeSelector = '.active,.selected,.current,.youarehere',
+			$menu = $('.' + mcdc),
+			activeClass = current_menu_class,
+			activeSelector = '.' + current_menu_class,
 			menuChildrenSelector = '> li,> ul > li',
 			// Application Generic Variables 
 			$body = $(document.body),
@@ -62,7 +62,7 @@
 			var $this = $(this);
 
 			// Ajaxify
-			$this.find('a:internal:not(.no-ajaxy)').live('click', function(event){
+			$this.find('a:internal:not(.no-ajaxy,[href^="#"])').live('click', function(event){
 				// Prepare
 				var
 					$this	= $(this),
@@ -77,7 +77,6 @@
 				event.preventDefault();
 				return false;
 			});
-
 			// Chain
 			return $this;
 		};
@@ -95,7 +94,11 @@
 
 			// Set Loading
 			$body.addClass('loading');
-
+			
+			$content.html('<img src="' + rootUrl + 'wp-content/plugins/ajaxify-wordpress-site/images/loader.gif" />')
+								 .css('text-align', 'center');
+			
+			
 			// Start Fade Out
 			// Animating to opacity to 0 still keeps the element's height intact
 			// Which prevents that annoying pop bang issue when loading in new content
@@ -109,20 +112,20 @@
 					// Prepare
 					var
 						$data 			= $(documentHtml(data)),
-						$dataBody		= $data.find('#document-body:first'),
-						bodyClasses 	= $dataBody.attr('class'),
-						$dataContent 	= $dataBody.find(contentSelector).filter(':first'),
+						$dataBody		= $data.find('#document-body:first ' + contentSelector),
+						bodyClasses 	= $data.find('#document-body:first').attr('class'),
 						$menuChildren, contentHtml, $scripts;
 
 					//Add classes to body
 					jQuery('body').attr('class', bodyClasses);
 					
 					// Fetch the scripts
-					$scripts = $dataContent.find('#document-script');
+					$scripts = $dataBody.find('#document-script');
 					if ( $scripts.length ) $scripts.detach();
 
 					// Fetch the content
-					contentHtml = $dataContent.html()||$data.html();
+					contentHtml = $dataBody.html()||$data.html();
+
 					if ( !contentHtml ) {
 						document.location.href = url;
 						return false;
@@ -136,7 +139,15 @@
 
 					// Update the content
 					$content.stop(true,true);
-					$content.html(contentHtml).ajaxify().css('opacity',100).show(); // you could fade in here if you'd like 
+					$content.html(contentHtml)
+							.ajaxify()
+							.css('text-align', '')
+							.animate({opacity:1},800);
+							
+					//Adding no-ajaxy class to a tags present under ids provided
+					$(ids).each(function(){
+						jQuery(this).addClass('no-ajaxy');
+					});
 					
 					// Update the title
 					document.title = $data.find('#document-title:first').text();
@@ -147,7 +158,11 @@
 
 					// Add the scripts
 					$scripts.each(function(){
-						var $script = $(this), scriptText = $script.text(), scriptNode = document.createElement('script');
+						var 
+							$script = $(this), 
+							scriptText = $script.text(), 
+							scriptNode = document.createElement('script');
+						
 						scriptNode.appendChild(document.createTextNode(scriptText));
 						contentNode.appendChild(scriptNode);
 					});
@@ -178,16 +193,21 @@
 })(window); // end closure
 
 jQuery(document).ready(function(){
-
+	
+	//Adding no-ajaxy class to a tags present under ids provided
+	jQuery(ids).each(function(){
+		jQuery(this).addClass('no-ajaxy');
+	});
+	
 	//append anchor tag to DOM to make the search in site ajaxify.
 	var searchButtonHtml = '<span id="ajax-search" style="display:none;"><a href=""></a></span>'
 	jQuery("body").prepend(searchButtonHtml);
 	
 	//Make the link ajaxify.
 	jQuery("#ajax-search").ajaxify();
-	//After submitting the search form search the post without refresing the browser.
 	
-	jQuery("#search-submit").click(
+	//After submitting the search form search the post without refresing the browser.
+	jQuery("#search-submit").live('click',
 		function(d){
 			d.preventDefault();
 			var host = rootUrl + "?s=";
@@ -195,4 +215,5 @@ jQuery(document).ready(function(){
 			jQuery("#ajax-search a").trigger("click");
 		}
 	);
+	
 });

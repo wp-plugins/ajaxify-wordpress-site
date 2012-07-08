@@ -1,23 +1,28 @@
 === Ajaxify Wordpress Site ===
 Contributors: manishkrag
-Version 1.1
+Version 1.3
 Tags: ajax, posts, pages, page, post, ajax search, ajaxify, ajax pages, ajax posts, ajaxy pages, ajaxify posts, ajaxify wordpress site, ajaxify-wordpres-site, ajax wordpress, wordpress ajax
 Tested up to: 3.4
 
 == Description ==
 
-Ajaxify Wordpress Site will load posts, pages, search etc. without reloading entire page. This was my first plugin and is still a little quirky.
+Ajaxify Wordpress Site will load posts, pages, search, header, sidebar, footer sections etc. without reloading entire page. This was my first plugin and is still a little quirky.
+
+By providing the id of the container whose data needs to update admin can select which portion s/he want to ajaxify. Like if your site has static header, sidebar and footer section then you can provide the middile content area container id, again if your site contain all dynamic data then you have to provide the id of the div in which your sites all content present.
 
 Features:
 <br /> Post will load without browser refresh.
 <br /> Page will load without browser refresh.
 <br /> Make wordpress search to ajaxify search.
 <br /> Your custom theme design will not break.
+<br /> Your sidebar also load without browser refresh, means if a site having different widget in differe page at sidebar then they can also use this AWS plug-in.
+
 
 == Installation ==
 
 * Upload `ajaxify-wordpress-site` folder to the `/wp-content/plugins/` directory
 * Activate the plugin through the 'Plugins' menu in WordPress.
+* Go to Settings tab there a `AWS Options Page` link will be present click on it and provide the datails.
 * Change the ID of the wordpress search form submit button to "search-submit".
 * Provide "no-ajaxy" class to "a" tag if you dont want to make this "a" tag to be ajaxify.
 
@@ -31,6 +36,15 @@ Features:
 <br />A: Add 'no-ajaxify' class to the 'a' tag which you dont want to make ajaxify.
 
 == Changelog ==
+
+= 1.3 =
+* Added option page link under Settings tab name AWS options.
+* Added text box to provide the id of the container needs to ajaxify.
+* Added text box to provide the id of the container containing anchor(a) tags you dont want to handle by AWS.
+* Solve the issue with updating the menu items.
+* Integrated the dynamic sidebar content load.
+* Integrated the page loading bar.
+* optimized the js code.
 
 = 1.2 =
 * Solve the issue if no-ajaxify class dynamically adding to anchor tags.
