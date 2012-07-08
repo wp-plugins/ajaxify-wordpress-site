@@ -111,7 +111,7 @@ function aws_option_form() {
 			</tr>
 			<tr><td colspan=3></td></tr>
 			<tr>
-				<td>Menu containner class:</td>
+				<td>Menu container class:</td>
 				<td><input type="text" name="mcdc" value="<?php echo get_option('mcdc'); ?>" /></td>
 				<td>Class of the div in which menu's ul, li present. eg: menu</td>
 			</tr>
