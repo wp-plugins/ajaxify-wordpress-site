@@ -6,7 +6,7 @@
  *			   This was my first plugin and is still a little quirky.
  *Author: Manish Kumar Agarwal
  *EmailId: manishkrag@yahoo.co.in/manisha@mindfiresolutions.com/skype:mfsi_manish
- *Version: 1.3
+ *Version: 1.3.1
  */
  
 /*
@@ -63,36 +63,11 @@ function aws_option_link() {
  *	Description: Show aws option form to admin, save data to wp_option table.
  */
 function aws_option_form() {
-	/**
-	 * Check whether the form submitted or not.
-	 */
-	if( isset($_POST['option-save']) ) {
-		//Get the form value
-		$ids = trim($_POST['no-ajax-ids']);
-		$container_id = trim($_POST['container-id']);
-		$mcdc = trim($_POST['mcdc']);
-		$current_menu_class = trim($_POST['current-menu-class']);
-		
-		//Explode the value by comma(,).
-		$ids_arr = explode(',', $ids);
-		
-		//Remove spaces if any.
-		foreach( $ids_arr as $key => $id ) {
-			$ids_arr[$key] = trim($id);
-		}
-		$ids = implode(',', $ids_arr);
-		
-		////Update the database
-		update_option('no-ajax-ids', $ids);
-		update_option('container-id', $container_id);
-		update_option('mcdc', $mcdc);
-		update_option('current-menu-class', $current_menu_class);
-	}
 	?>
 	<h2>AWS Options</h2>
 	<!-- AWS option table start here -->
-	<form method="post" name="option-form">
-		<table>
+	<form id="option-form" method="post" name="option-form">
+		<table id="aws-option-table">
 			<tr>
 				<td>No ajax container IDs:</td>
 				<td><input type="text" name="no-ajax-ids" value="<?php echo get_option('no-ajax-ids'); ?>" /></td>
@@ -130,7 +105,48 @@ function aws_option_form() {
 		</table>
 	</form>
 	<!-- AWS option table end here -->
+	
+	<script>
+	jQuery('#aws-option-table').click(function() {
+		jQuery('#aws-option-table input').each(function(){
+			if(jQuery(this).val() == '') {
+				alert('Please provide the data for field: ' + jQuery(this).closest('tr').children('td:nth-child(1)').text());
+				return false;
+			}
+		});
+	});
+	</script>
 	<?php
+	
+		/**
+		 * Check whether the form submitted or not.
+		 */
+		if( isset($_POST['option-save']) ) {
+			//Get the form value
+			$ids = trim($_POST['no-ajax-ids']);
+			$container_id = trim($_POST['container-id']);
+			$mcdc = trim($_POST['mcdc']);
+			$current_menu_class = trim($_POST['current-menu-class']);
+			
+			if( $container_id == '' || $mcdc == '' || $current_menu_class == '' )
+				die('<p style="color:red">Last three(3) fields are mendatory.</p>');
+		
+			//Explode the value by comma(,).
+			$ids_arr = explode(',', $ids);
+			
+			//Remove spaces if any.
+			foreach( $ids_arr as $key => $id ) {
+				$ids_arr[$key] = trim($id);
+			}
+			$ids = implode(',', $ids_arr);
+			
+			////Update the database
+			update_option('no-ajax-ids', $ids);
+			update_option('container-id', $container_id);
+			update_option('mcdc', $mcdc);
+			update_option('current-menu-class', $current_menu_class);
+		}
+		
 } //End of aws_option_form function
 
 //calling aws_load_scripts function to load js files

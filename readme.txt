@@ -40,6 +40,9 @@ Features:
 
 == Changelog ==
 
+= 1.3.1 =
+* Added AWS Options form validation codes.
+
 = 1.3 =
 * Added option page link under Settings tab name AWS options.
 * Added text box to provide the id of the container needs to ajaxify.
