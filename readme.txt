@@ -32,11 +32,11 @@ Features:
 <br />Q: Search is not working as ajaxify?
 <br />A: Please make sure that your search form submit input tag id should be 'search-submit' and input box id should be 'search-terms'.
 <br />Q: I don't want to make a link ajaxify, what to do?
-<br />A: Add 'no-ajaxify' class to the 'a' tag which you dont want to make ajaxify.
+<br />A: Add 'no-ajaxy' class to the 'a' tag which you dont want to make ajaxify.
 <br />Q: How to make Comment Reply link no-ajaxy?
 <br />A: Put the parent tag's ID in first text box in AWS options form. Eg: comments
 <br />Q: What if my some links are working fine when browser refresh but after first ajax load links are not working?
-<br />A: Actually most of the js files are present in HEAD tag are these are not reloading at the time of ajax page load. Try to put all your js events in js live functions.
+<br />A: Actually most of the js files are present in HEAD tag and these are not reloading at the time of ajax page load. Try to put all your js events in js live functions.
 
 == Changelog ==
 
