@@ -6,7 +6,7 @@
  *			   This was my first plugin and is still a little quirky.
  *Author: Manish Kumar Agarwal
  *EmailId: manishkrag@yahoo.co.in/manisha@mindfiresolutions.com/skype:mfsi_manish
- *Version: 1.3.1
+ *Version: 1.3.2
  */
  
 /*
@@ -63,8 +63,38 @@ function aws_option_link() {
  *	Description: Show aws option form to admin, save data to wp_option table.
  */
 function aws_option_form() {
+	echo '<h2>AWS Options</h2>';
+
+	/**
+	 * Check whether the form submitted or not.
+	 */
+	if( isset($_POST['option-save']) ) {
+		//Get the form value
+		$ids = trim($_POST['no-ajax-ids']);
+		$container_id = trim($_POST['container-id']);
+		$mcdc = trim($_POST['mcdc']);
+		$current_menu_class = trim($_POST['current-menu-class']);
+		
+		if( $container_id == '' || $mcdc == '' || $current_menu_class == '' )
+			echo '<p style="color:red">Last three(3) fields are mendatory.</p>';
+		else {
+			//Explode the value by comma(,).
+			$ids_arr = explode(',', $ids);
+			
+			//Remove spaces if any.
+			foreach( $ids_arr as $key => $id ) {
+				$ids_arr[$key] = trim($id);
+			}
+			$ids = implode(',', $ids_arr);
+			
+			////Update the database
+			update_option('no-ajax-ids', $ids);
+			update_option('container-id', $container_id);
+			update_option('mcdc', $mcdc);
+			update_option('current-menu-class', $current_menu_class);
+		}
+	}
 	?>
-	<h2>AWS Options</h2>
 	<!-- AWS option table start here -->
 	<form id="option-form" method="post" name="option-form">
 		<table id="aws-option-table">
@@ -99,7 +129,7 @@ function aws_option_form() {
 			<tr><td colspan=3></td></tr>
 			<tr>
 				<td></td>
-				<td><input type="submit" name="option-save" value="Save options"/></td>
+				<td><input id="option-save" type="submit" name="option-save" value="Save options"/></td>
 				<td></td>
 			</tr>
 		</table>
@@ -107,45 +137,17 @@ function aws_option_form() {
 	<!-- AWS option table end here -->
 	
 	<script>
-	jQuery('#aws-option-table').click(function() {
-		jQuery('#aws-option-table input').each(function(){
+	jQuery('#option-save').click(function(event) {
+		jQuery('#aws-option-table input:not(:first)').each(function(){
 			if(jQuery(this).val() == '') {
-				alert('Please provide the data for field: ' + jQuery(this).closest('tr').children('td:nth-child(1)').text());
+				alert('Please provide the data for field: ' + jQuery(this).closest('tr').children('td:nth-child(1)').text().replace(':', ''));
+				event.preventDefault();
 				return false;
 			}
 		});
 	});
 	</script>
 	<?php
-	
-		/**
-		 * Check whether the form submitted or not.
-		 */
-		if( isset($_POST['option-save']) ) {
-			//Get the form value
-			$ids = trim($_POST['no-ajax-ids']);
-			$container_id = trim($_POST['container-id']);
-			$mcdc = trim($_POST['mcdc']);
-			$current_menu_class = trim($_POST['current-menu-class']);
-			
-			if( $container_id == '' || $mcdc == '' || $current_menu_class == '' )
-				die('<p style="color:red">Last three(3) fields are mendatory.</p>');
-		
-			//Explode the value by comma(,).
-			$ids_arr = explode(',', $ids);
-			
-			//Remove spaces if any.
-			foreach( $ids_arr as $key => $id ) {
-				$ids_arr[$key] = trim($id);
-			}
-			$ids = implode(',', $ids_arr);
-			
-			////Update the database
-			update_option('no-ajax-ids', $ids);
-			update_option('container-id', $container_id);
-			update_option('mcdc', $mcdc);
-			update_option('current-menu-class', $current_menu_class);
-		}
 		
 } //End of aws_option_form function
 

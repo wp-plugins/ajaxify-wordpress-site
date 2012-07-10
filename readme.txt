@@ -1,6 +1,6 @@
 === Ajaxify Wordpress Site(AWS) ===
 Contributors: manishkrag
-Version 1.3.1
+Version 1.3.2
 Tags: ajax, posts, pages, page, post, ajax search, ajaxify, ajax pages, ajax posts, ajaxy pages, ajaxify posts, ajaxify wordpress site, ajaxify-wordpres-site, ajax wordpress, wordpress ajax
 Tested up to: 3.4
 
@@ -48,6 +48,9 @@ Features:
 <br />A: Actually most of the js files are present in HEAD tag and these are not reloading at the time of ajax page load. Try to put all your js events in js live functions.
 
 == Changelog ==
+
+= 1.3.2 =
+* Fixed the issue present with AWS options form validation jQuery error message alert functionality.
 
 = 1.3.1 =
 * Added AWS Options form validation codes.
