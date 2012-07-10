@@ -1,6 +1,6 @@
 === Ajaxify Wordpress Site(AWS) ===
 Contributors: manishkrag
-Version 1.3
+Version 1.3.1
 Tags: ajax, posts, pages, page, post, ajax search, ajaxify, ajax pages, ajax posts, ajaxy pages, ajaxify posts, ajaxify wordpress site, ajaxify-wordpres-site, ajax wordpress, wordpress ajax
 Tested up to: 3.4
 
