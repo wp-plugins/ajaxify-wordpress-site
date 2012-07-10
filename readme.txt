@@ -6,19 +6,26 @@ Tested up to: 3.4
 
 == Description ==
 
+Ajaxify your wordpress site in two steps:
+
+* 1: Install AWS plug-in.
+* 2: Fill up the AWS Options form link present under settings tab. DONE
+
 Ajaxify Wordpress Site will load posts, pages, search, header, sidebar, footer sections etc. without reloading entire page. This was my first plugin and is still a little quirky.
 
 By providing the id of the container, in aws options form, whose data needs to update admin can select which portion s/he want to ajaxify. Like if your site has static header, sidebar and footer section then you can provide the middile content area container id, again if your site contain all dynamic data then you have to provide the id of the div in which your sites all content present.
 
 As most of the wordpress plug-in which can make your website ajaxify with constant url which is not SEO friendly, but AWS serves you clean and dynamic urls which make your website SEO friendly too.
 
+
 Features:
-<br /> Post will load without browser refresh.
-<br /> Page will load without browser refresh.
-<br /> Make wordpress search to ajaxify search.
-<br /> Your custom theme design will not break.
-<br /> Your sidebar also load without browser refresh, means if a site having different widget in differe page at sidebar then they can also use this AWS plug-in.
-<br /> Tested in IE, FF, Chrome, Safari etc brwsers.
+
+* Post will load without browser refresh.
+* Page will load without browser refresh.
+* Make wordpress search to ajaxify search.
+* Your custom theme design will not break.
+* Your sidebar also load without browser refresh, means if a site having different widget in differe page at sidebar then they can also use this AWS plug-in.
+* Tested in IE, FF, Chrome, Safari etc brwsers.
 
 == Installation ==
 
