@@ -12,7 +12,7 @@ By providing the id of the container, in aws options form, whose data needs to u
 
 As most of the wordpress plug-in which can make your website ajaxify with constant url which is not SEO friendly, but AWS serves you clean and dynamic urls which make your website SEO friendly too.
 
-=Features:=
+Features:
 <br /> Post will load without browser refresh.
 <br /> Page will load without browser refresh.
 <br /> Make wordpress search to ajaxify search.
