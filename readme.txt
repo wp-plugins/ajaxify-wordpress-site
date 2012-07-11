@@ -7,8 +7,7 @@ Tested up to: 3.4
 
 == Description ==
 
-Ajaxify your wordpress site in two steps:
-
+**Ajaxify your wordpress site in two steps:**
 * 1: Install AWS plug-in.
 * 2: Fill up the AWS Options form link present under settings tab. DONE
 
@@ -19,14 +18,16 @@ By providing the id of the container, in aws options form, whose data needs to u
 As most of the wordpress plug-in which can make your website ajaxify with constant url which is not SEO friendly, but AWS serves you clean and dynamic urls which make your website SEO friendly too.
 
 
-Features:
-
+**Features:**
 * Post will load without browser refresh.
 * Page will load without browser refresh.
 * Make wordpress search to ajaxify search.
 * Your custom theme design will not break.
 * Your sidebar also load without browser refresh, means if a site having different widget in differe page at sidebar then they can also use this AWS plug-in.
 * Tested in IE, FF, Chrome, Safari etc brwsers.
+
+**Author's Other Plugins:** 
+* <a href="http://wordpress.org/extend/plugins/members-import/" target="_blank">Members Import</a>
 
 == Installation ==
 
