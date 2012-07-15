@@ -54,6 +54,9 @@ As most of the wordpress plug-in which can make your website ajaxify with consta
 
 == Changelog ==
 
+= 1.3.3 =
+* Update the code thus default WP search form will work as ajaxify form without any modification.
+
 = 1.3.2 =
 * Fixed the issue present with AWS options form validation jQuery error message alert functionality.
 

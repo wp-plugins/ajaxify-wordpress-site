@@ -207,11 +207,11 @@ jQuery(document).ready(function(){
 	jQuery("#ajax-search").ajaxify();
 	
 	//After submitting the search form search the post without refresing the browser.
-	jQuery("#search-submit").live('click',
+	jQuery("#searchsubmit").live('click',
 		function(d){
 			d.preventDefault();
 			var host = rootUrl + "?s=";
-			jQuery("#ajax-search a").attr("href", host + jQuery(this).siblings("#search-terms").val());
+			jQuery("#ajax-search a").attr("href", host + jQuery(this).siblings("#s").val());
 			jQuery("#ajax-search a").trigger("click");
 		}
 	);
