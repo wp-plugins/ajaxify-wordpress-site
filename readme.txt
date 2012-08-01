@@ -55,11 +55,10 @@ As most of the wordpress plug-in which can make your website ajaxify with consta
 == Changelog ==
 
 = 1.3.3 =
-* Update the code thus default WP search form will work as ajaxify form without any modification.
-
+* Bug fix: Now if the link containing wp-admin or wp-login text then page will reload. As we only need frontend as ajaxyfy.
 = 1.3.2 =
 * Fixed the issue present with AWS options form validation jQuery error message alert functionality.
-
+* Update the code thus default WP search form will work as ajaxify form without any modification.
 = 1.3.1 =
 * Added AWS Options form validation codes.
 

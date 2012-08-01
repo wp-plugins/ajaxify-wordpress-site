@@ -62,7 +62,7 @@
 			var $this = $(this);
 
 			// Ajaxify
-			$this.find('a:internal:not(.no-ajaxy,[href^="#"])').live('click', function(event){
+			$this.find('a:internal:not(.no-ajaxy,[href^="#"],[href*="wp-login"],[href*="wp-admin"])').live('click', function(event){
 				// Prepare
 				var
 					$this	= $(this),
