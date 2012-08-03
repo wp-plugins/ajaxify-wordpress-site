@@ -30,7 +30,7 @@ As most of the wordpress plug-in which can make your website ajaxify with consta
 <br /> <a href="http://wordpress.org/extend/plugins/members-import/" target="_blank">Members Import</a>
 
 **Plug-in Page:** 
-<br /> <a href="http://www.idealthought.in/aws-plug-in-for-wordpress/" target="_blank">AWS</a>
+<br /> <a href="http://www.youngtechleads.com/aws-plug-in-for-wordpress/" target="_blank">AWS</a>
 
 == Installation ==
 
