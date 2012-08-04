@@ -40,16 +40,16 @@ As most of the wordpress plug-in which can make your website ajaxify with consta
 
 == Frequently Asked Questions ==
 
-= My site not ajaxify even after activating this plugin?=
- Please check you core jQuery library, please use 1.7 version.
-= Search form is not working as ajaxify?=
- Please make sure that your search form tag id should be 'searchform' and input box id should be 's'.
-= I don't want to make a link ajaxify, what to do?=
- Add 'no-ajaxy' class to the 'a' tag which you dont want to make ajaxify or put the parent tag IDs in first text box of the AWS option form separated by comma(,).
-= How to make Comment Reply link no-ajaxy?=
- Put the parent tag's ID in first text box in AWS options form. Eg: comments
-= What if my some links are working fine when browser refresh but after first ajax load links are not working?=
- Actually most of the js files are present in HEAD tag and these are not reloading at the time of ajax page load. Try to put all your js events in js live functions.
+<br />Q: My site not ajaxify even after activating this plugin?
+<br />A: Please check you core jQuery library, please use 1.7 version.
+<br />Q: Search form is not working as ajaxify?
+<br />A: Please make sure that your search form tag id should be 'searchform' and input box id should be 's'.
+<br />Q: I don't want to make a link ajaxify, what to do?
+<br />A: Add 'no-ajaxy' class to the 'a' tag which you dont want to make ajaxify or put the parent tag IDs in first text box of the AWS option form separated by comma(,).
+<br />Q: How to make Comment Reply link no-ajaxy?
+<br />A: Put the parent tag's ID in first text box in AWS options form. Eg: comments
+<br />Q: What if my some links are working fine when browser refresh but after first ajax load links are not working?
+<br />A: Actually most of the js files are present in HEAD tag and these are not reloading at the time of ajax page load. Try to put all your js events in js live functions.
 
 == Changelog ==
 
