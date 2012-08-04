@@ -95,14 +95,10 @@
 			// Set Loading
 			$body.addClass('loading');
 			
-			$content.html('<img src="' + rootUrl + 'wp-content/plugins/ajaxify-wordpress-site/images/loader.gif" />')
-								 .css('text-align', 'center');
-			
-			
 			// Start Fade Out
 			// Animating to opacity to 0 still keeps the element's height intact
 			// Which prevents that annoying pop bang issue when loading in new content
-			$content.animate({opacity:0},800);
+			$content.animate({opacity:0.7},800);
 
 			// Ajax Request the Traditional Page
 			$.ajax({
@@ -142,7 +138,7 @@
 					$content.html(contentHtml)
 							.ajaxify()
 							.css('text-align', '')
-							.animate({opacity:1},800);
+							.animate({opacity: 0, visibility: "visible"}).animate({opacity: 1},800);
 							
 					//Adding no-ajaxy class to a tags present under ids provided
 					$(ids).each(function(){
@@ -158,13 +154,23 @@
 
 					// Add the scripts
 					$scripts.each(function(){
-						var 
-							$script = $(this), 
-							scriptText = $script.text(), 
+						var $script = $(this), 
+							scriptText = $script.html(), 
 							scriptNode = document.createElement('script');
-						
-						scriptNode.appendChild(document.createTextNode(scriptText));
-						contentNode.appendChild(scriptNode);
+						// scriptNode.appendChild(document.createTextNode(scriptText));
+						// contentNode.appendChild(scriptNode);
+						try {
+							// doesn't work on ie...
+							scriptNode.appendChild(document.createTextNode(scriptText));
+							contentNode.appendChild(scriptNode);
+						} catch(e) {
+							// IE has funky script nodes
+							scriptNode.text = scriptText;
+							contentNode.appendChild(scriptNode);
+						}
+						if($(this).attr('src') != null) {
+							scriptNode.setAttribute('src', ($(this).attr('src')));
+						}
 					});
 
 					// Complete the change
@@ -207,11 +213,11 @@ jQuery(document).ready(function(){
 	jQuery("#ajax-search").ajaxify();
 	
 	//After submitting the search form search the post without refresing the browser.
-	jQuery("#searchsubmit").live('click',
+	jQuery("#searchform").live('submit',
 		function(d){
 			d.preventDefault();
 			var host = rootUrl + "?s=";
-			jQuery("#ajax-search a").attr("href", host + jQuery(this).siblings("#s").val());
+			jQuery("#ajax-search a").attr("href", host + jQuery(this).find("#s").val());
 			jQuery("#ajax-search a").trigger("click");
 		}
 	);

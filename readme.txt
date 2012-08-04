@@ -29,31 +29,34 @@ As most of the wordpress plug-in which can make your website ajaxify with consta
 **Author's Other Plugins:** 
 <br /> <a href="http://wordpress.org/extend/plugins/members-import/" target="_blank">Members Import</a>
 
-**Plug-in Page:** 
-<br /> <a href="http://www.youngtechleads.com/aws-plug-in-for-wordpress/" target="_blank">AWS</a>
+**Plug-in Page:**  <a href="http://www.youngtechleads.com/aws-plug-in-for-wordpress/" target="_blank">Ajaxify Wordpress Site(AWS)</a>
 
 == Installation ==
 
-* Upload `ajaxify-wordpress-site` folder to the `/wp-content/plugins/` directory
-* Activate the plugin through the 'Plugins' menu in WordPress.
-* Go to Settings tab there a `AWS Options Page` link will be present click on it and provide the datails.
-* Change the ID of the wordpress search form submit button to "search-submit".
+1. Upload `ajaxify-wordpress-site` folder to the `/wp-content/plugins/` directory
+1. Activate the plugin through the 'Plugins' menu in WordPress.
+1. Go to Settings tab there a `AWS Options Page` link will be present click on it and provide the datails.
+1. Change the ID of the wordpress search form submit button to "search-submit".
 
 == Frequently Asked Questions ==
 
-<br />Q: My site not ajaxify even after activating this plugin?
-<br />A: Please check you core jQuery library, please use 1.7 version.
-<br />Q: Search is not working as ajaxify?
-<br />A: Please make sure that your search form submit input tag id should be 'search-submit' and input box id should be 'search-terms'.
-<br />Q: I don't want to make a link ajaxify, what to do?
-<br />A: Add 'no-ajaxy' class to the 'a' tag which you dont want to make ajaxify or put the parent tag IDs in first text box of AWS option form separated by comma(,).
-<br />Q: How to make Comment Reply link no-ajaxy?
-<br />A: Put the parent tag's ID in first text box in AWS options form. Eg: comments
-<br />Q: What if my some links are working fine when browser refresh but after first ajax load links are not working?
-<br />A: Actually most of the js files are present in HEAD tag and these are not reloading at the time of ajax page load. Try to put all your js events in js live functions.
+= My site not ajaxify even after activating this plugin?=
+ Please check you core jQuery library, please use 1.7 version.
+= Search form is not working as ajaxify?=
+ Please make sure that your search form tag id should be 'searchform' and input box id should be 's'.
+= I don't want to make a link ajaxify, what to do?=
+ Add 'no-ajaxy' class to the 'a' tag which you dont want to make ajaxify or put the parent tag IDs in first text box of the AWS option form separated by comma(,).
+= How to make Comment Reply link no-ajaxy?=
+ Put the parent tag's ID in first text box in AWS options form. Eg: comments
+= What if my some links are working fine when browser refresh but after first ajax load links are not working?=
+ Actually most of the js files are present in HEAD tag and these are not reloading at the time of ajax page load. Try to put all your js events in js live functions.
 
 == Changelog ==
 
+= 1.3.4 =
+* Updated: Previously search form was ajaxify on click event, it is modified to form submit event. Form ID should be 'searchform' and text box ID should be 's'.
+* Updated: Changed the fading effect while site's statechange occur.
+* Bug fix: Fixed the bug related to external js load.
 = 1.3.3 =
 * Bug fix: Now if the link containing wp-admin or wp-login text then page will reload. As we only need frontend as ajaxify.
 = 1.3.2 =
@@ -61,7 +64,6 @@ As most of the wordpress plug-in which can make your website ajaxify with consta
 * Update the code thus default WP search form will work as ajaxify form without any modification.
 = 1.3.1 =
 * Added AWS Options form validation codes.
-
 = 1.3 =
 * Added option page link under Settings tab name AWS options.
 * Added text box to provide the id of the container needs to ajaxify.
