@@ -53,6 +53,9 @@ As most of the wordpress plug-in which can make your website ajaxify with consta
 
 == Changelog ==
 
+= 1.3.5 =
+* Added: Now all the meta tags are updating with every ajax load. This will increase the SEO functionality.
+
 = 1.3.4 =
 * Updated: Previously search form was ajaxify on click event, it is modified to form submit event. Form ID should be 'searchform' and text box ID should be 's'.
 * Updated: Changed the fading effect while site's statechange occur.

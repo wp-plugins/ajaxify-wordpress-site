@@ -50,8 +50,8 @@
 		var documentHtml = function(html){
 			// Prepare
 			var result = String(html).replace(/<\!DOCTYPE[^>]*>/i, '')
-									 .replace(/<(html|head|body|title|meta|script)([\s\>])/gi,'<div id="document-$1"$2')
-									 .replace(/<\/(html|head|body|title|meta|script)\>/gi,'</div>');
+									 .replace(/<(html|head|body|title|script)([\s\>])/gi,'<div id="document-$1"$2')
+									 .replace(/<\/(html|head|body|title|script)\>/gi,'</div>');
 			// Return
 			return result;
 		};
@@ -157,8 +157,6 @@
 						var $script = $(this), 
 							scriptText = $script.html(), 
 							scriptNode = document.createElement('script');
-						// scriptNode.appendChild(document.createTextNode(scriptText));
-						// contentNode.appendChild(scriptNode);
 						try {
 							// doesn't work on ie...
 							scriptNode.appendChild(document.createTextNode(scriptText));
@@ -171,6 +169,14 @@
 						if($(this).attr('src') != null) {
 							scriptNode.setAttribute('src', ($(this).attr('src')));
 						}
+					});
+					// Update meta tags
+					$metas = $data.find('meta');
+					jQuery('head meta').each(function(){
+						jQuery(this).remove();
+					});
+					$metas.each(function(){
+						jQuery('head').append(jQuery(this));
 					});
 
 					// Complete the change
