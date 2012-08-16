@@ -37,6 +37,8 @@ As most of the wordpress plug-in which can make your website ajaxify with consta
 1. Activate the plugin through the 'Plugins' menu in WordPress.
 1. Go to Settings tab there a `AWS Options Page` link will be present click on it and provide the datails.
 1. Change the ID of the wordpress search form submit button to "search-submit".
+1. Provide the ID of the container you want to be ajaxify in 'Ajax container ID' field.
+1. Provide the class of the menu container in 'Menu container class' field.
 
 == Frequently Asked Questions ==
 
