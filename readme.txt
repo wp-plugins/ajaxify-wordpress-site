@@ -1,9 +1,10 @@
 === Ajaxify Wordpress Site(AWS) ===
 Contributors: manishkrag
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=manishkrag@yahoo.co.in&item_name=Ajaxify%20WordPress%20Site(AWS)&return=http://wordpress.org/extend/plugins/ajaxify-wordpress-site/
-Version 1.3.2
-Tags: ajax, posts, pages, page, post, ajax search, ajaxify, ajax pages, ajax posts, ajaxy pages, ajaxify posts, ajaxify wordpress site, ajaxify-wordpres-site, ajax wordpress, wordpress ajax
+Version 1.3.5
+Tags: ajax, posts, pages, page, post, ajax search, ajaxify, ajax page loader, ajax posts, ajaxy pages, ajaxify posts, ajaxify wordpress site, ajaxify-wordpres-site, ajax wordpress, wordpress ajax page load, no refresh, dynamic, no page refresh, 
 Tested up to: 3.4
+Stable tag: 1.3.5
 
 == Description ==
 
