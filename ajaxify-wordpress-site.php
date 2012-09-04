@@ -6,7 +6,7 @@
  *Author: Manish Kumar Agarwal
  *Author URI: http://www.youngtechleads.com
  *EmailId: manishkrag@yahoo.co.in/manisha@mindfiresolutions.com/skype:mfsi_manish
- *Version: 1.3.5
+ *Version: 1.4
  *Plugin URI: http://www.youngtechleads.com/aws-plug-in-for-wordpress
  */
  
@@ -39,11 +39,9 @@ register_activation_hook( __FILE__, 'aws_install' );
 function aws_install() {
 	$container_id 		= (get_option('container-id') != '') ? get_option('container-id') : 'main' ;
 	$mcdc 				= (get_option('mcdc') != '') ? get_option('mcdc') : 'menu' ;
-	$current_menu_class = (get_option('current-menu-class') != '') ? get_option('current-menu-class') : 'current_page_item' ;
 	
 	update_option('container-id', $container_id);
 	update_option('mcdc', $mcdc);
-	update_option('current-menu-class', $current_menu_class);
 }
 
 
@@ -74,10 +72,9 @@ function aws_option_form() {
 		$ids = trim($_POST['no-ajax-ids']);
 		$container_id = trim($_POST['container-id']);
 		$mcdc = trim($_POST['mcdc']);
-		$current_menu_class = trim($_POST['current-menu-class']);
 		
-		if( $container_id == '' || $mcdc == '' || $current_menu_class == '' )
-			echo '<p style="color:red">Last three(3) fields are mendatory.</p>';
+		if( $container_id == '' || $mcdc == '' )
+			echo '<p style="color:red">Last two(2) fields are mendatory.</p>';
 		else {
 			//Explode the value by comma(,).
 			$ids_arr = explode(',', $ids);
@@ -92,7 +89,6 @@ function aws_option_form() {
 			update_option('no-ajax-ids', $ids);
 			update_option('container-id', $container_id);
 			update_option('mcdc', $mcdc);
-			update_option('current-menu-class', $current_menu_class);
 		}
 	}
 	?>
@@ -120,12 +116,6 @@ function aws_option_form() {
 				<td>Menu container class:</td>
 				<td><input type="text" name="mcdc" value="<?php echo get_option('mcdc'); ?>" /></td>
 				<td>Class of the div in which menu's ul, li present. eg: menu</td>
-			</tr>
-			<tr><td colspan=3></td></tr>
-			<tr>
-				<td>Current menu class:</td>
-				<td><input type="text" name="current-menu-class" value="<?php echo get_option('current-menu-class'); ?>" /></td>
-				<td>Class of the current/selected menu on which css written. eg: current_page_item</td>
 			</tr>
 			<tr><td colspan=3></td></tr>
 			<tr>
@@ -188,6 +178,5 @@ function aws_load_scripts() {
 	wp_localize_script('ajaxify-js', 'ids', $ids);
 	wp_localize_script('ajaxify-js', 'container_id', get_option('container-id'));
 	wp_localize_script('ajaxify-js', 'mcdc', get_option('mcdc'));
-	wp_localize_script('ajaxify-js', 'current_menu_class', get_option('current-menu-class'));
 	
 } // End of aws_load_scripts function

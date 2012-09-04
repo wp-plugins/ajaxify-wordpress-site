@@ -17,10 +17,6 @@
 			contentSelector = '#' + container_id,
 			$content = $(contentSelector),
 			contentNode = $content.get(0),
-			$menu = $('.' + mcdc),
-			activeClass = current_menu_class,
-			activeSelector = '.' + current_menu_class,
-			menuChildrenSelector = '> li,> ul > li',
 			// Application Generic Variables 
 			$body = $(document.body),
 			scrollOptions = {
@@ -110,8 +106,10 @@
 						$data 			= $(documentHtml(data)),
 						$dataBody		= $data.find('#document-body:first ' + contentSelector),
 						bodyClasses 	= $data.find('#document-body:first').attr('class'),
-						$menuChildren, contentHtml, $scripts;
-
+						contentHtml, $scripts;
+					
+					var $menu_list = $data.find('.' + mcdc);
+					
 					//Add classes to body
 					jQuery('body').attr('class', bodyClasses);
 					
@@ -127,19 +125,16 @@
 						return false;
 					}
 
-					// Update the menu
-					$menuChildren = $menu.find(menuChildrenSelector);
-					$menuChildren.filter(activeSelector).removeClass(activeClass);
-					$menuChildren = $menuChildren.has('a[href^="'+relativeUrl+'"],a[href^="/'+relativeUrl+'"],a[href^="'+url+'"]');
-					if ( $menuChildren.length === 1 ) $menuChildren.addClass(activeClass);
-
 					// Update the content
 					$content.stop(true,true);
 					$content.html(contentHtml)
 							.ajaxify()
 							.css('text-align', '')
 							.animate({opacity: 0, visibility: "visible"}).animate({opacity: 1},800);
-							
+					
+					//Append new menu HTML to provided classs
+					$('.' + mcdc).html($menu_list.html());
+					
 					//Adding no-ajaxy class to a tags present under ids provided
 					$(ids).each(function(){
 						jQuery(this).addClass('no-ajaxy');
