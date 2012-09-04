@@ -59,6 +59,7 @@ As most of the wordpress plug-in which can make your website ajaxify with consta
 = 1.4.0 =
 * Removed: From the admin AWS options page removed the 'Current menu class' text box.
 * Removed: Removed the code from ajaxify.js file related to current menu selector.
+* Removed: Removed unneccessary images directory.
 * Fixed: Current menu Highlighter issue, informed by several users.
 
 = 1.3.5 =
