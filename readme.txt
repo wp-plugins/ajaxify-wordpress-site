@@ -1,10 +1,10 @@
 === Ajaxify Wordpress Site(AWS) ===
 Contributors: manishkrag
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=manishkrag@yahoo.co.in&item_name=Ajaxify%20WordPress%20Site(AWS)&return=http://wordpress.org/extend/plugins/ajaxify-wordpress-site/
-Version 1.4
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=manishkrag@yahoo.co.in&item_name=Ajaxify%20WordPress%20Site(AWS)&return=http://wordpress.org/extend/plugins/ajaxify-wordpress-site/
+Version 1.5
 Tags: ajax, posts, pages, page, post, ajax search, ajaxify, ajax page loader, ajax posts, ajaxy pages, ajaxify posts, ajaxify wordpress site, ajaxify-wordpres-site, ajax wordpress, wordpress ajax page load, no refresh, dynamic, no page refresh
-Tested up to: 3.4
-Stable tag: 1.4
+Tested up to: 3.5
+Stable tag: 1.5
 
 == Description ==
 
@@ -27,9 +27,6 @@ As most of the wordpress plug-in which can make your website ajaxify with consta
 <br /> Your sidebar also load without browser refresh, means if a site having different widget in differe page at sidebar then they can also use this AWS plug-in.
 <br /> Tested in IE, FF, Chrome, Safari etc brwsers.
 
-**Author's Other Plugins:** 
-<br /> <a href="http://wordpress.org/extend/plugins/members-import/" target="_blank">Members Import</a>
-
 **Plug-in Page:**  <a href="http://www.youngtechleads.com/aws-plug-in-for-wordpress/" target="_blank">Ajaxify Wordpress Site(AWS)</a>
 
 == Installation ==
@@ -44,17 +41,24 @@ As most of the wordpress plug-in which can make your website ajaxify with consta
 == Frequently Asked Questions ==
 
 <br />Q: My site not ajaxify even after activating this plugin?
-<br />A: Please check you core jQuery library, please use 1.7 version.
+<br />A: Please check you core jQuery library, please use the latest version.
 <br />Q: Search form is not working as ajaxify?
-<br />A: Please make sure that your search form tag id should be 'searchform' and input box id should be 's'.
+<br />A: Please make sure that your search form tag id provided in AWS admin setting form.
 <br />Q: I don't want to make a link ajaxify, what to do?
-<br />A: Add 'no-ajaxy' class to the 'a' tag which you dont want to make ajaxify or put the parent tag IDs in first text box of the AWS option form separated by comma(,).
+<br />A: Add 'no-ajaxy' class to the 'a' tag which you dont want to make ajaxify or put the parent tag IDs in first text box in AWS option form separated by comma(,).
 <br />Q: How to make Comment Reply link no-ajaxy?
 <br />A: Put the parent tag's ID in first text box in AWS options form. Eg: comments
 <br />Q: What if my some links are working fine when browser refresh but after first ajax load links are not working?
 <br />A: Actually most of the js files are present in HEAD tag and these are not reloading at the time of ajax page load. Try to put all your js events in js live functions.
 
 == Changelog ==
+
+= 1.5.0 =
+* New: In AWS Options form added new text field for search form TAG ID to make seacrh ajaxed.
+* New: Added showing page loader image during loading the a page.
+* Fixed: Solve the issue of loading ajaxed pages twice.
+* Optimized: Made the codes more optimized which will increase performance.
+* Removed the meta tags reloading as they dont have any role for frontend users.
 
 = 1.4.0 =
 * Removed: From the admin AWS options page removed the 'Current menu class' text box.

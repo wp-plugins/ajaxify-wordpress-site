@@ -14,7 +14,8 @@
 		// Prepare Variables
 		var
 			// Application Specific Variables 
-			contentSelector = '#' + container_id,
+			rootUrl = aws_data['rootUrl'],
+			contentSelector = '#' + aws_data['container_id'],
 			$content = $(contentSelector),
 			contentNode = $content.get(0),
 			// Application Generic Variables 
@@ -94,13 +95,18 @@
 			// Start Fade Out
 			// Animating to opacity to 0 still keeps the element's height intact
 			// Which prevents that annoying pop bang issue when loading in new content
-			$content.animate({opacity:0.7},800);
+			$content.animate({opacity:0},800);
+			
+			if( '' != aws_data['loader']) {
+				$content
+						.html('<img src="' + rootUrl + 'wp-content/plugins/ajaxify-wordpress-site/images/' + aws_data['loader'] + '" />')
+						.css('text-align', 'center');
+			}
 
 			// Ajax Request the Traditional Page
 			$.ajax({
 				url: url,
 				success: function(data, textStatus, jqXHR){
-					
 					// Prepare
 					var
 						$data 			= $(documentHtml(data)),
@@ -108,7 +114,7 @@
 						bodyClasses 	= $data.find('#document-body:first').attr('class'),
 						contentHtml, $scripts;
 					
-					var $menu_list = $data.find('.' + mcdc);
+					var $menu_list = $data.find('.' + aws_data['mcdc']);
 					
 					//Add classes to body
 					jQuery('body').attr('class', bodyClasses);
@@ -130,13 +136,13 @@
 					$content.html(contentHtml)
 							.ajaxify()
 							.css('text-align', '')
-							.animate({opacity: 0, visibility: "visible"}).animate({opacity: 1},800);
+							.animate({opacity: 1, visibility: "visible"});
 					
 					//Append new menu HTML to provided classs
-					$('.' + mcdc).html($menu_list.html());
+					$('.' + aws_data['mcdc']).html($menu_list.html());
 					
 					//Adding no-ajaxy class to a tags present under ids provided
-					$(ids).each(function(){
+					$(aws_data['ids']).each(function(){
 						jQuery(this).addClass('no-ajaxy');
 					});
 					
@@ -165,18 +171,7 @@
 							scriptNode.setAttribute('src', ($(this).attr('src')));
 						}
 					});
-					// Update meta tags
-					$metas = $data.find('meta');
-					jQuery('head meta').each(function(){
-						jQuery(this).remove();
-					});
-					$metas.each(function(){
-						jQuery('head').append(jQuery(this));
-					});
-
-					// Complete the change
-					if ( $body.ScrollTo||false ) $body.ScrollTo(scrollOptions);
-					
+										
 					$body.removeClass('loading');
 
 					// Inform Google Analytics of the change
@@ -202,7 +197,7 @@
 jQuery(document).ready(function(){
 	
 	//Adding no-ajaxy class to a tags present under ids provided
-	jQuery(ids).each(function(){
+	jQuery(aws_data['ids']).each(function(){
 		jQuery(this).addClass('no-ajaxy');
 	});
 	
@@ -214,13 +209,12 @@ jQuery(document).ready(function(){
 	jQuery("#ajax-search").ajaxify();
 	
 	//After submitting the search form search the post without refresing the browser.
-	jQuery("#searchform").live('submit',
+	jQuery("#" + aws_data['searchID']).live('submit',
 		function(d){
 			d.preventDefault();
-			var host = rootUrl + "?s=";
+			var host = aws_data['rootUrl'] + "?s=";
 			jQuery("#ajax-search a").attr("href", host + jQuery(this).find("#s").val());
 			jQuery("#ajax-search a").trigger("click");
 		}
 	);
-	
 });
