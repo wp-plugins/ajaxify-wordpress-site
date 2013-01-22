@@ -6,7 +6,7 @@
  *Author: Manish Kumar Agarwal
  *Author URI: http://www.youngtechleads.com
  *EmailId: manishkrag@yahoo.co.in/manisha@mindfiresolutions.com/skype:mfsi_manish
- *Version: 1.5
+ *Version: 1.5.1
  *Plugin URI: http://www.youngtechleads.com/aws-plug-in-for-wordpress
  */
 
@@ -252,7 +252,6 @@ function aws_load_scripts() {
 	global $plugin_dir_path;
 	
 	wp_enqueue_script('history-js', $plugin_dir_path . 'js/history.js', array('jquery'));
-	wp_enqueue_script('jquery-scrollTo-js', $plugin_dir_path . 'js/jquery.scrollTo-min.js', array('jquery'));
 	wp_enqueue_script('ajaxify-js',  $plugin_dir_path . 'js/ajaxify.js', array('jquery'));
 	
 	$ids_arr = explode(',', get_option('no-ajax-ids'));

@@ -1,3 +1,4 @@
+//Version 1.5.1
 (function(window,undefined){
 
 	// Prepare our Variables
@@ -137,6 +138,12 @@
 							.ajaxify()
 							.css('text-align', '')
 							.animate({opacity: 1, visibility: "visible"});
+					
+					//Scroll to the top of ajax container
+					jQuery('html, body').animate({
+								scrollTop: jQuery(contentSelector).offset().top
+								}, 1000);
+					
 					
 					//Append new menu HTML to provided classs
 					$('.' + aws_data['mcdc']).html($menu_list.html());
