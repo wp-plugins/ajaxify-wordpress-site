@@ -1,4 +1,4 @@
-//Version 1.5.1
+//Version 1.5.2
 (function(window,undefined){
 
 	// Prepare our Variables
@@ -60,7 +60,7 @@
 			var $this = $(this);
 
 			// Ajaxify
-			$this.find('a:internal:not(.no-ajaxy,[href^="#"],[href*="wp-login"],[href*="wp-admin"])').live('click', function(event){
+			$this.find('a:internal:not(.no-ajaxy,[href^="#"],[href*="wp-login"],[href*="wp-admin"])').on('click', function(event){
 				// Prepare
 				var
 					$this	= $(this),
@@ -216,7 +216,7 @@ jQuery(document).ready(function(){
 	jQuery("#ajax-search").ajaxify();
 	
 	//After submitting the search form search the post without refresing the browser.
-	jQuery("#" + aws_data['searchID']).live('submit',
+	jQuery("#" + aws_data['searchID']).on('submit',
 		function(d){
 			d.preventDefault();
 			var host = aws_data['rootUrl'] + "?s=";

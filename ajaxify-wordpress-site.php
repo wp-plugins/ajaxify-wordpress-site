@@ -6,7 +6,7 @@
  *Author: Manish Kumar Agarwal
  *Author URI: http://www.youngtechleads.com
  *EmailId: manishkrag@yahoo.co.in/manisha@mindfiresolutions.com/skype:mfsi_manish
- *Version: 1.5.1
+ *Version: 1.5.2
  *Plugin URI: http://www.youngtechleads.com/aws-plug-in-for-wordpress
  */
 
