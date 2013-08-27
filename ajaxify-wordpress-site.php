@@ -122,9 +122,7 @@ function aws_option_form() {
 			<tr>
 				<td><strong>No ajax container IDs:<strong></td>
 				<td>
-					<textarea id="no_ajax_ids" name="no-ajax-ids">
-					<?php echo get_option('no-ajax-ids'); ?>
-					</textarea>
+					<textarea id="no_ajax_ids" name="no-ajax-ids"><?php echo get_option('no-ajax-ids'); ?></textarea>
 				</td>
 			</tr>
 			<tr>
@@ -215,12 +213,11 @@ function aws_option_form() {
 			<form method="post" action="https://www.paypal.com/cgi-bin/webscr" target="_blank" class="">
 				<strong>Amount</strong> $ <input type="text" value="" title="Other donate" size="15" name="amount">
 				<input type="hidden" value="_xclick" name="cmd">
-				<input type="hidden" value="manishkrag@yahoo.co.in" name="business">
+				<input type="hidden" value="soumi.das1990@gmail.com" name="business">
 				<input type="hidden" value="Young Tech Leads" name="item_name">
 				<input type="hidden" value="USD" name="currency_code">
 				<input type="hidden" value="0" name="no_shipping">
 				<input type="hidden" value="1" name="no_note">
-				<input type="hidden" value="WQDDZ3ZBQKYS2" name="mrb">
 				<input type="hidden" value="IC_Sample" name="bn">
 				<input type="hidden" value="http://www.youngtechleads.com/thanks" name="return">
 				<input type="image" alt="Make payments with payPal - it's fast, free and secure!" name="submit" src="https://www.paypal.com/en_US/i/btn/x-click-but11.gif">
