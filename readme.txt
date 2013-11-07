@@ -3,14 +3,17 @@ Contributors: manishkrag
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=soumi.das1990@gmail.com&item_name=Ajaxify%20WordPress%20Site(AWS)&return=http://wordpress.org/extend/plugins/ajaxify-wordpress-site/
 Version 1.5.2
 Tags: ajax, posts, pages, page, post, ajax search, ajaxify, ajax page loader, ajax posts, ajaxy pages, ajaxify posts, ajaxify wordpress site, ajaxify-wordpres-site, ajax wordpress, wordpress ajax page load, no refresh, dynamic, no page refresh
-Tested up to: 3.6
+Tested up to: 3.7.1
 Stable tag: 1.5.2
 
 == Description ==
 
+**Important Note:**
+1. If your jQuery core library version is less than 2.0 then please go to the plugin's js directory open ajaxify.js file in your favourite editor then search for `.on` and replace it by `.live`. This is because the plugin is written for as per latest version of jQuery
+
 **Ajaxify your wordpress site in two steps:**
-<br /> 1: Install AWS plug-in.
-<br /> 2: Fill up the AWS Options form link present under settings tab. DONE
+1. Install AWS plug-in.
+1. Fill up the AWS Options form link present under settings tab. DONE
 
 Ajaxify Wordpress Site will load posts, pages, search, header, sidebar, footer sections etc. without reloading entire page. This was my first plugin and is still a little quirky.
 
