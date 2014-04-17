@@ -1,10 +1,10 @@
 === Ajaxify Wordpress Site(AWS) ===
 Contributors: manishkrag
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=soumi.das1990@gmail.com&item_name=Ajaxify%20WordPress%20Site(AWS)&return=http://wordpress.org/extend/plugins/ajaxify-wordpress-site/
-Version 1.5.2
+Version 1.5.3
 Tags: ajax, posts, pages, page, post, ajax search, ajaxify, ajax page loader, ajax posts, ajaxy pages, ajaxify posts, ajaxify wordpress site, ajaxify-wordpres-site, ajax wordpress, wordpress ajax page load, no refresh, dynamic, no page refresh
 Tested up to: 3.9
-Stable tag: 1.5.2
+Stable tag: 1.5.3
 
 == Description ==
 
@@ -56,6 +56,11 @@ As most of the wordpress plug-in which can make your website ajaxify with consta
 <br />A: Actually most of the js files are present in HEAD tag and these are not reloading at the time of ajax page load. Try to put all your js events in js live functions.
 
 == Changelog ==
+
+= 1.5.3 =
+* Added: Transition Effect Enable/Disable option.
+* Added: Scroll to top Effect Enable/Disable option.
+* Modification: Default Search box made ajaxify. Now instead of search form ID you have to provide class as default theme having class. If your search is not ajaxify then make the search form as same as ' Twenty Fourteen' theme.
 
 = 1.5.2 =
 * Updated: replaced live function by on function.

@@ -6,7 +6,7 @@
  *Author: Manish Kumar Agarwal
  *Author URI: http://www.youngtechleads.com
  *EmailId: manishkrag@yahoo.co.in/manisha@mindfiresolutions.com/skype:mfsi_manish
- *Version: 1.5.2
+ *Version: 1.5.3
  *Plugin URI: http://www.youngtechleads.com/aws-plug-in-for-wordpress
  */
 
@@ -49,11 +49,15 @@ function aws_install() {
 	$container_id 		= (get_option('container-id') != '') ? get_option('container-id') : 'main' ;
 	$mcdc 				= (get_option('mcdc') != '') ? get_option('mcdc') : 'menu' ;
 	$search_form 		= (get_option('search-form') != '') ? get_option('search-form') : 'searchform' ;
-	$loader 		= (get_option('loader') != '') ? get_option('loader') : '' ;
+	$transition 		= (get_option('transition') != '') ? get_option('transition') : '' ;
+	$scrollTop 			= (get_option('scrollTop') != '') ? get_option('scrollTop') : '' ;
+	$loader 			= (get_option('loader') != '') ? get_option('loader') : '' ;
 	
 	update_option('container-id', $container_id);
 	update_option('mcdc', $mcdc);
 	update_option('search-form', $search_form);
+	update_option('transition', $transition);
+	update_option('scrollTop', $scrollTop);
 	update_option('loader', $loader);
 }
 
@@ -92,6 +96,8 @@ function aws_option_form() {
 		$container_id 	= trim($_POST['container-id']);
 		$mcdc 			= trim($_POST['mcdc']);
 		$search_form 	= trim($_POST['search_form']);
+		$transition 	= $_POST['transition'];
+		$scrollTop	 	= $_POST['scrollTop'];
 		$loader 		= $_POST['loader'];
 		
 		if( $container_id == '' || $mcdc == '' )
@@ -111,6 +117,8 @@ function aws_option_form() {
 			update_option('container-id', $container_id);
 			update_option('mcdc', $mcdc);
 			update_option('search-form', $search_form);
+			update_option('transition', $transition);
+			update_option('scrollTop', $scrollTop);
 			update_option('loader', $loader);
 			echo '<div class="updated" id="message"><p>Settings updated.</p></div>';
 		}
@@ -160,6 +168,15 @@ function aws_option_form() {
 				<td></td>
 				<td>To make your search ajaxify provide the search form ID, else your search form will behave as normal search.</td>
 			</tr>
+			<tr>
+				<td><strong>Enable Transition Effect:</strong></td>
+				<td><input type="checkbox" name="transition" value="1" <?php checked( get_option('transition'), 1, true ); ?>" /></td>
+			</tr>
+			<tr>
+				<td><strong>Enable scroll to top Effect:</strong></td>
+				<td><input type="checkbox" name="scrollTop" value="1" <?php checked( get_option('scrollTop'), 1, true ); ?>" /></td>
+			</tr>
+			
 			<tr>
 				<td><strong>Loader Image:</strong></td>
 				<td>
@@ -266,6 +283,8 @@ function aws_load_scripts() {
 		'container_id' 	=> get_option('container-id'),
 		'mcdc' 			=> get_option('mcdc'),
 		'searchID' 		=> get_option('search-form'),
+		'transition' 	=> get_option('transition'),
+		'scrollTop' 	=> get_option('scrollTop'),
 		'loader' 		=> get_option('loader')
 	);
 	

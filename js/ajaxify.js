@@ -1,4 +1,4 @@
-//Version 1.5.2
+//Version 1.5.3
 (function(window,undefined){
 
 	// Prepare our Variables
@@ -96,9 +96,11 @@
 			// Start Fade Out
 			// Animating to opacity to 0 still keeps the element's height intact
 			// Which prevents that annoying pop bang issue when loading in new content
-			$content.animate({opacity:0},800);
 			
-			if( '' != aws_data['loader']) {
+			if ( '' != aws_data['transition'] ) {
+				$content.animate({opacity:0},800);
+			}
+			if( '' != aws_data['loader'] ) {
 				$content
 						.html('<img src="' + rootUrl + 'wp-content/plugins/ajaxify-wordpress-site/images/' + aws_data['loader'] + '" />')
 						.css('text-align', 'center');
@@ -140,10 +142,11 @@
 							.animate({opacity: 1, visibility: "visible"});
 					
 					//Scroll to the top of ajax container
-					jQuery('html, body').animate({
-								scrollTop: jQuery(contentSelector).offset().top
-								}, 1000);
-					
+					if ( '' != aws_data['scrollTop'] ) {
+						jQuery('html, body').animate({
+									scrollTop: jQuery(contentSelector).offset().top
+									}, 1000);
+					}
 					
 					//Append new menu HTML to provided classs
 					$('.' + aws_data['mcdc']).html($menu_list.html());
