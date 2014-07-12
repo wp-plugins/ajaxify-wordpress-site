@@ -1,10 +1,10 @@
 === Ajaxify Wordpress Site(AWS) ===
 Contributors: manishkrag
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=soumi.das1990@gmail.com&item_name=Ajaxify%20WordPress%20Site(AWS)&return=http://wordpress.org/extend/plugins/ajaxify-wordpress-site/
-Version 1.5.3
+Version 1.5.4
 Tags: ajax, posts, pages, page, post, ajax search, ajaxify, ajax page loader, ajax posts, ajaxy pages, ajaxify posts, ajaxify wordpress site, ajaxify-wordpres-site, ajax wordpress, wordpress ajax page load, no refresh, dynamic, no page refresh
-Tested up to: 3.9
-Stable tag: 1.5.3
+Tested up to: 4.0
+Stable tag: 1.5.4
 
 == Description ==
 
@@ -18,18 +18,19 @@ If your jQuery core library version is less than 2.0 then please go to the plugi
 
 Ajaxify Wordpress Site will load posts, pages, search, header, sidebar, footer sections etc. without reloading entire page. This was my first plugin and is still a little quirky.
 
-By providing the id of the container, in aws options form, whose data needs to update admin can select which portion s/he want to ajaxify. Like if your site has static header, sidebar and footer section then you can provide the middile content area container id, again if your site contain all dynamic data then you have to provide the id of the div in which your sites all content present.
+By providing the id of the container, in aws options form, whose data needs to update admin can select which portion s/he want to ajaxify. Like if your site has static header, sidebar and footer section then you can provide the middle content area container id, again if your site contain all dynamic data then you have to provide the id of the div in which your sites all content present.
 
 As most of the wordpress plug-in which can make your website ajaxify with constant url which is not SEO friendly, but AWS serves you clean and dynamic urls which make your website SEO friendly too.
 
 
 **Features:**
+<br /> Support added for BuddyPress.
 <br /> Post will load without browser refresh.
 <br /> Page will load without browser refresh.
 <br /> Make wordpress search to ajaxify search.
 <br /> Your custom theme design will not break.
-<br /> Your sidebar also load without browser refresh, means if a site having different widget in differe page at sidebar then they can also use this AWS plug-in.
-<br /> Tested in IE, FF, Chrome, Safari etc brwsers.
+<br /> Your sidebar also load without browser refresh, means if a site having different widget in different page at sidebar then they can also use this AWS plug-in.
+<br /> Tested in latest IE, FF, Chrome, Safari etc. browsers.
 
 **Plug-in Page:**  <a href="http://www.youngtechleads.com/aws-plug-in-for-wordpress/" target="_blank">Ajaxify Wordpress Site(AWS)</a>
 
@@ -37,10 +38,10 @@ As most of the wordpress plug-in which can make your website ajaxify with consta
 
 1. Upload `ajaxify-wordpress-site` folder to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress.
-1. Go to Settings tab there a `AWS Options Page` link will be present click on it and provide the datails.
-1. Please make sure that your search form tag id should be 'searchform' and input box id should be 's'.
+1. Go to Settings tab there a `AWS Options Page` link will be present click on it and provide the details.
 1. Provide the ID of the container you want to be ajaxify in 'Ajax container ID' field.
 1. Provide the class of the menu container in 'Menu container class' field.
+1. Provide search form tag id/class with #/. respectively.
 
 == Frequently Asked Questions ==
 
@@ -49,13 +50,18 @@ As most of the wordpress plug-in which can make your website ajaxify with consta
 <br />Q: Search form is not working as ajaxify?
 <br />A: Please make sure that your search form tag id provided in AWS admin setting form.
 <br />Q: I don't want to make a link ajaxify, what to do?
-<br />A: Add 'no-ajaxy' class to the 'a' tag which you dont want to make ajaxify or put the parent tag IDs in first text box in AWS option form separated by comma(,).
+<br />A: Add 'no-ajaxy' class to the 'a' tag which you don't want to make ajaxify or put the parent tag IDs in first text box in AWS option form separated by comma(,).
 <br />Q: How to make Comment Reply link no-ajaxy?
 <br />A: Put the parent tag's ID in first text box in AWS options form. Eg: comments
 <br />Q: What if my some links are working fine when browser refresh but after first ajax load links are not working?
 <br />A: Actually most of the js files are present in HEAD tag and these are not reloading at the time of ajax page load. Try to put all your js events in js live functions.
 
 == Changelog ==
+
+= 1.5.4 =
+* Added: Support for BuddyPress.
+* Modification: Modified the code for search functionality and made it more flexible.
+* Optimized: Optimized the js code.
 
 = 1.5.3 =
 * Added: Transition Effect Enable/Disable option.
@@ -70,16 +76,16 @@ As most of the wordpress plug-in which can make your website ajaxify with consta
 * Removed: jquery.scrollTo-min.js file.
 
 = 1.5.0 =
-* New: In AWS Options form added new text field for search form TAG ID to make seacrh ajaxed.
+* New: In AWS Options form added new text field for search form TAG ID to make search ajaxed.
 * New: Added showing page loader image during loading the a page.
 * Fixed: Solve the issue of loading ajaxed pages twice.
 * Optimized: Made the codes more optimized which will increase performance.
-* Removed the meta tags reloading as they dont have any role for frontend users.
+* Removed the meta tags reloading as they don't have any role for frontend users.
 
 = 1.4.0 =
 * Removed: From the admin AWS options page removed the 'Current menu class' text box.
 * Removed: Removed the code from ajaxify.js file related to current menu selector.
-* Removed: Removed unneccessary images directory.
+* Removed: Removed unnecessary images directory.
 * Fixed: Current menu Highlighter issue, informed by several users.
 
 = 1.3.5 =

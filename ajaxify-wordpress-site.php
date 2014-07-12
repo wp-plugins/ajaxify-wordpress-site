@@ -6,7 +6,7 @@
  *Author: Manish Kumar Agarwal
  *Author URI: http://www.youngtechleads.com
  *EmailId: manishkrag@yahoo.co.in/manisha@mindfiresolutions.com/skype:mfsi_manish
- *Version: 1.5.3
+ *Version: 1.5.4
  *Plugin URI: http://www.youngtechleads.com/aws-plug-in-for-wordpress
  */
 
@@ -161,12 +161,12 @@ function aws_option_form() {
 				<td>Class of the div in which menu's ul, li present. eg: menu</td>
 			</tr>
 			<tr>
-				<td><strong>Search form TAG ID:*</strong></td>
+				<td><strong>Search form TAG ID/CLASS:*</strong></td>
 				<td><input type="text" name="search_form" value="<?php echo get_option('search-form'); ?>" /></td>
 			</tr>
 			<tr>
 				<td></td>
-				<td>To make your search ajaxify provide the search form ID, else your search form will behave as normal search.</td>
+				<td>To make your search ajaxify provide the search form ID/CLASS.<br><strong>Example:</strong> if form tag class is search-form then provide <strong><i>.#search-form</i></strong> if ID is search-form the provide <strong><i>#search-form</i></strong></td>
 			</tr>
 			<tr>
 				<td><strong>Enable Transition Effect:</strong></td>
@@ -277,6 +277,9 @@ function aws_load_scripts() {
 	}
 	$ids = implode(',', $ids_arr);
 	
+	include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+	$bp_status = is_plugin_active( 'buddypress/bp-loader.php' );
+	
 	$aws_data = array(
 		'rootUrl' 		=> site_url() . '/',
 		'ids' 			=> $ids,
@@ -285,7 +288,8 @@ function aws_load_scripts() {
 		'searchID' 		=> get_option('search-form'),
 		'transition' 	=> get_option('transition'),
 		'scrollTop' 	=> get_option('scrollTop'),
-		'loader' 		=> get_option('loader')
+		'loader' 		=> get_option('loader'),
+		'bp_status'     => $bp_status
 	);
 	
 	wp_localize_script('ajaxify-js', 'aws_data', $aws_data);

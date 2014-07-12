@@ -1,4 +1,4 @@
-//Version 1.5.3
+//Version 1.5.4
 (function(window,undefined){
 
 	// Prepare our Variables
@@ -159,29 +159,30 @@
 					// Update the title
 					document.title = $data.find('#document-title:first').text();
 					try {
-						document.getElementsByTagName('title')[0].innerHTML = document.title.replace('<','&lt;').replace('>','&gt;').replace(' & ',' &amp; ');
+						document.getElementsByTagName('title')[0].innerHTML = document.title.replace('<','&lt;')
+																							.replace('>','&gt;')
+																							.replace(' & ',' &amp; ');
 					}
 					catch ( Exception ) { }
 
 					// Add the scripts
 					$scripts.each(function(){
-						var $script = $(this), 
-							scriptText = $script.html(), 
+						var scriptText = $(this).html();
+							
+						if ( '' != scriptText ) {
 							scriptNode = document.createElement('script');
-						try {
-							// doesn't work on ie...
 							scriptNode.appendChild(document.createTextNode(scriptText));
 							contentNode.appendChild(scriptNode);
-						} catch(e) {
-							// IE has funky script nodes
-							scriptNode.text = scriptText;
-							contentNode.appendChild(scriptNode);
-						}
-						if($(this).attr('src') != null) {
-							scriptNode.setAttribute('src', ($(this).attr('src')));
+						} else {
+							$.getScript( $(this).attr('src') );
 						}
 					});
-										
+					
+					// BuddyPress Support
+					if ( aws_data['bp_status'] ) {
+						$.getScript(rootUrl + '/wp-content/plugins/buddypress/bp-templates/bp-legacy/js/buddypress.js');
+					}
+					
 					$body.removeClass('loading');
 
 					// Inform Google Analytics of the change
@@ -218,12 +219,12 @@ jQuery(document).ready(function(){
 	//Make the link ajaxify.
 	jQuery("#ajax-search").ajaxify();
 	
-	//After submitting the search form search the post without refresing the browser.
-	jQuery("#" + aws_data['searchID']).on('submit',
+	//After submitting the search form search the post without refreshing the browser.
+	jQuery(aws_data['searchID']).on('submit',
 		function(d){
 			d.preventDefault();
 			var host = aws_data['rootUrl'] + "?s=";
-			jQuery("#ajax-search a").attr("href", host + jQuery(this).find("#s").val());
+			jQuery("#ajax-search a").attr("href", host + jQuery(this).find('input[type="search"]').val());
 			jQuery("#ajax-search a").trigger("click");
 		}
 	);
