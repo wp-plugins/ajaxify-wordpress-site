@@ -9,6 +9,7 @@ Stable tag: 1.5.4
 == Description ==
 
 **Important Note:**
+<p> Ajaxify Wordpress Site Latest Version <a href="http://www.youngtechleads.com/ajaxify-wordpress-site-pro/">Details Here</a></p>
 <br />
 If your jQuery core library version is less than 2.0 then please go to the plugin's js directory open ajaxify.js file in your favourite editor then search for `.on` and replace it by `.live`. This is because the plugin is written for as per latest version of jQuery
 

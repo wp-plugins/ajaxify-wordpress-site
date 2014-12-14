@@ -1,8 +1,8 @@
 <?php
 /*
- *Plugin Name: Ajaxify Wordpress Site
+ *Plugin Name: Ajaxify WordPress Site
  *Description: This will ajaxify your website. All the front end links will turns to ajaxify.
- *Ajaxify Wordpress Site will load posts, pages, search etc. without reloading entire page.
+ *Ajaxify WordPress Site will load posts, pages, search etc. without reloading entire page.
  *Author: Manish Kumar Agarwal
  *Author URI: http://www.youngtechleads.com
  *EmailId: manishkrag@yahoo.co.in/manisha@mindfiresolutions.com/skype:mfsi_manish
@@ -243,6 +243,8 @@ function aws_option_form() {
 		If you are using this plugin on your website and it has saved you time/money or you are using this plugin in a commercial project, think about the time and
 		effort put into this plugin for free so that life is easier for you, <b>give a donation!</b>
 		<div style="clear:right"></div>
+		<div style="clear:both"></div>
+		<p> Ajaxify Wordpress Site Pro <a href="http://www.youngtechleads.com/ajaxify-wordpress-site-pro/">Details Here</a></p>
 	</div>
 	
 	</div>
