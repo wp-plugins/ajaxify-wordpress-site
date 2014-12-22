@@ -1,9 +1,9 @@
 === Ajaxify Wordpress Site(AWS) ===
 Contributors: manishkrag
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=soumi.das1990@gmail.com&item_name=Ajaxify%20WordPress%20Site(AWS)&return=http://wordpress.org/extend/plugins/ajaxify-wordpress-site/
-Version 1.5.4
+Version 1.5.5
 Tags: ajax, posts, pages, page, post, ajax search, ajaxify, ajax page loader, ajax posts, ajaxy pages, ajaxify posts, ajaxify wordpress site, ajaxify-wordpres-site, ajax wordpress, wordpress ajax page load, no refresh, dynamic, no page refresh
-Tested up to: 4.0
+Tested up to: 4.1
 Stable tag: 1.5.4
 
 == Description ==
@@ -58,6 +58,9 @@ As most of the wordpress plug-in which can make your website ajaxify with consta
 <br />A: Actually most of the js files are present in HEAD tag and these are not reloading at the time of ajax page load. Try to put all your js events in js live functions.
 
 == Changelog ==
+
+= 1.5.5 =
+* Issue fixed, working every alternate time.
 
 = 1.5.4 =
 * Added: Support for BuddyPress.

@@ -1,4 +1,4 @@
-//Version 1.5.4
+//Version 1.5.5
 (function(window,undefined){
 
 	// Prepare our Variables
@@ -150,7 +150,7 @@
 					
 					//Append new menu HTML to provided classs
 					$('.' + aws_data['mcdc']).html($menu_list.html());
-					
+					$body.ajaxify();
 					//Adding no-ajaxy class to a tags present under ids provided
 					$(aws_data['ids']).each(function(){
 						jQuery(this).addClass('no-ajaxy');
