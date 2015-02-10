@@ -3,9 +3,9 @@
  *Plugin Name: Ajaxify WordPress Site
  *Description: This will ajaxify your website. All the front end links will turns to ajaxify.
  *Ajaxify WordPress Site will load posts, pages, search etc. without reloading entire page.
- *Author: Manish Kumar Agarwal
+ *Author: Soumi Das
  *Author URI: http://www.youngtechleads.com
- *EmailId: manishkrag@yahoo.co.in/manisha@mindfiresolutions.com/skype:mfsi_manish
+ *EmailId: soumi.das1990@gmail.com/skype:soumibgb
  *Version: 1.5.5
  *Plugin URI: http://www.youngtechleads.com/aws-plug-in-for-wordpress
  */
